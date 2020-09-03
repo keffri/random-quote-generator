@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: url(./images/water.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.container {
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30%);
+}
+
+.title {
+  text-align: center;
+}
+
+.generate {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30%);
+  padding: 10px;
+  border: 2px solid #000;
+  background-color: #d3d2ce;
+  border-radius: 5px;
+}
+
+.generate:active {
+  transform: translateX(-50%) translateY(-30%) scale(0.97);
+}
+
+.generate:focus {
+  outline: none;
+}
+
+.quote {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-65%);
+  width: 100%;
+  text-align: center;
+}
+
+.originator {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-75%);
+}
