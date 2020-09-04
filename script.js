@@ -6,7 +6,7 @@ let quotes = [
   `"We suffer more often in imagination than in reality."`,
   `“The soul becomes dyed with the colour of its thoughts.”`,
 ];
-let originators = ["Seneca", "Marcus Aurelius"];
+let originators = [`Seneca`, `Marcus Aurelius`];
 
 // //Current number of quotes (by index number) [0, 1, 2, 3, 4]
 let quoteNumbers = [];
@@ -21,17 +21,22 @@ function randomQuoteNumber() {
 }
 
 function generateQuote() {
+  let c = randomQuoteNumber();
   //Obtains current quote.
-  let currentQuote = document.querySelector(".quote").textContent;
-
+  let currentQuote = document.querySelector(".quote").innerHTML;
+  let currentOriginator = document.querySelector(".originator").innerHTML;
   //Sets next quote to random quote from the quotes array.
-  let nextQuote = quotes[randomQuoteNumber()];
+
+  let nextQuote = quotes[c];
+  let nextOriginator = originators[c];
   //While both quotes are the same another quote is chosen at random.
-  while (currentQuote == nextQuote) {
+  if (currentQuote === nextQuote && currentOriginator === nextOriginator) {
     nextQuote = quotes[randomQuoteNumber()];
+    nextOriginator = originator[randomQuoteNumber()];
   }
   //While both quotes are no longer matching a new quote is set.
-  quote.textContent = nextQuote;
+  quote.innerHTML = nextQuote;
+  originator.innerHTML = nextOriginator;
 }
 
 generateButton.addEventListener("click", generateQuote);
