@@ -30,6 +30,7 @@ body {
 
 .generate {
   position: absolute;
+  display: inline-block;
   top: 30%;
   left: 50%;
   transform: translateX(-50%) translateY(-30%);

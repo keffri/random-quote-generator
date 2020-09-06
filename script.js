@@ -30,8 +30,8 @@ function randomQuoteNumber() {
 }
 
 function generateQuote() {
+  //Sets random index for quote in cases where current and next do not match.
   let c = randomQuoteNumber();
-
   //Obtains current quote.
   let currentQuote = document.querySelector(".quote").textContent;
   let currentOriginator = document.querySelector(".originator").textContent;
@@ -48,5 +48,25 @@ function generateQuote() {
   quote.textContent = nextQuote;
   originator.textContent = `- ${nextOriginator}`;
 }
+
+// let currentQuote = document.querySelector(".quote");
+
+// function generateRandom() {
+//   //Creates a copy of the quotes array.
+//   let copy = quotes.slice();
+//   //Obtains random index number from array
+//   let index = randomQuoteNumber();
+//   //While the copy array is not empty.
+//   while (copy.length > 0) {
+//     //Set the text content of current quote.
+//     currentQuote.textContent = copy[index];
+//     //Remove the used element.
+//     copy.splice(index, 1);
+//   }
+//   if (copy.length <= 0) {
+//     // If the array becomes empty then reset it.
+//     copy = quotes.slice();
+//   }
+// }
 
 generateButton.addEventListener("click", generateQuote);
