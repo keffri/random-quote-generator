@@ -50,22 +50,29 @@ function randomQuoteNumber() {
 // }
 
 let currentQuote = document.querySelector(".quote");
-let copy = quotes.slice();
+let currentOriginator = document.querySelector(".originator");
+
+//The copy of the Quotes/Originators.
+let copyQuotes = quotes.slice();
+let copyOriginators = originators.slice();
 
 function generateRandom() {
-  //Creates a copy of the quotes array.
-  if (copy.length === 0) {
-    copy = quotes.slice();
+  //If the copy arrays are empty, then reset them.
+  if (copyQuotes.length === 0 || copyOriginators.length === 0) {
+    copyQuotes = quotes.slice();
+    copyOriginators = originators.slice();
   }
-  //Obtains random index number from array
-  let index = Math.floor(Math.random() * copy.length);
-  //While the copy array is not empty.
-  while (copy.length > 0) {
-    //Set the text content of current quote.
-    currentQuote.textContent = copy[index];
-    //Remove the used element.
-    copy.splice(index, 1);
-  }
+
+  //Obtain a random index number.
+  let index = Math.floor(Math.random() * copyQuotes.length);
+
+  //Set the text content to the quote/originator combo.
+  currentQuote.textContent = copyQuotes[index];
+  currentOriginator.textContent = `- ${copyOriginators[index]}`;
+
+  //Remove the used quote/originator combo.
+  copyQuotes.splice(index, 1);
+  copyOriginators.splice(index, 1);
 }
 
 generateButton.addEventListener("click", generateRandom);
