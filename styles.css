@@ -63,3 +63,16 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-75%);
 }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeO {
+  animation: fadeOut 1s;
+}

@@ -49,24 +49,23 @@ function generateQuote() {
   originator.textContent = `- ${nextOriginator}`;
 }
 
-// let currentQuote = document.querySelector(".quote");
+let currentQuote = document.querySelector(".quote");
+let copy = quotes.slice();
 
-// function generateRandom() {
-//   //Creates a copy of the quotes array.
-//   let copy = quotes.slice();
-//   //Obtains random index number from array
-//   let index = randomQuoteNumber();
-//   //While the copy array is not empty.
-//   while (copy.length > 0) {
-//     //Set the text content of current quote.
-//     currentQuote.textContent = copy[index];
-//     //Remove the used element.
-//     copy.splice(index, 1);
-//   }
-//   if (copy.length <= 0) {
-//     // If the array becomes empty then reset it.
-//     copy = quotes.slice();
-//   }
-// }
+function generateRandom() {
+  //Creates a copy of the quotes array.
+  if (copy.length === 0) {
+    copy = quotes.slice();
+  }
+  //Obtains random index number from array
+  let index = Math.floor(Math.random() * copy.length);
+  //While the copy array is not empty.
+  while (copy.length > 0) {
+    //Set the text content of current quote.
+    currentQuote.textContent = copy[index];
+    //Remove the used element.
+    copy.splice(index, 1);
+  }
+}
 
-generateButton.addEventListener("click", generateQuote);
+generateButton.addEventListener("click", generateRandom);
