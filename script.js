@@ -5,14 +5,12 @@ let originator = document.querySelector(".originator");
 let quotes = [
   `"We suffer more often in imagination than in reality."`,
   `“The soul becomes dyed with the colour of its thoughts.”`,
-  `"Set aside a certain number of days, during which you shall be content with the scantiest and cheapest fare, with coarse and rough dress, saying to yourself the while: “Is this the condition that I feared?”`,
   `"Any man who reads too much and uses his own brain too little falls into lazy habits of thinking."`,
   `"If you don’t make mistakes, you’re not working on hard enough problems. And that’s a big mistake."`,
 ];
 let originators = [
   "Seneca",
   "Marcus Aurelius",
-  "Seneca",
   "Albert Einstein",
   "Frank Wilczek",
 ];
@@ -29,6 +27,7 @@ function randomQuoteNumber() {
   return quoteNumbers[n];
 }
 
+// OLD METHOD USED FOR GENERATING RANDOM.
 // function generateQuote() {
 //   //Sets random index for quote in cases where current and next do not match.
 //   let c = randomQuoteNumber();
@@ -49,30 +48,61 @@ function randomQuoteNumber() {
 //   originator.textContent = `- ${nextOriginator}`;
 // }
 
+//Sets the DOM for the quote and originator.
 let currentQuote = document.querySelector(".quote");
 let currentOriginator = document.querySelector(".originator");
 
-//The copy of the Quotes/Originators.
+//Create an array copy of the quotes and originators.
 let copyQuotes = quotes.slice();
 let copyOriginators = originators.slice();
 
+let buttonClicked = false;
 function generateRandom() {
-  //If the copy arrays are empty, then reset them.
+  //Sets the DOM of the about to be generated quote/originator.
+  let nextQuote = document.querySelector(".quote");
+  let nextOriginator = document.querySelector(".originator");
+
+  //If either array is empty, they will be reset.
   if (copyQuotes.length === 0 || copyOriginators.length === 0) {
     copyQuotes = quotes.slice();
     copyOriginators = originators.slice();
   }
 
-  //Obtain a random index number.
+  //Obtains a random index number from the copy array. Varies depending on how many elements are left in the array.
   let index = Math.floor(Math.random() * copyQuotes.length);
 
-  //Set the text content to the quote/originator combo.
-  currentQuote.textContent = copyQuotes[index];
-  currentOriginator.textContent = `- ${copyOriginators[index]}`;
+  //Sets the quote and originator to the corresponding index number.
+  currentQuote.classList.add("fade-in");
+  currentOriginator.classList.add("fade-in");
+  nextQuote.textContent = copyQuotes[index];
+  nextOriginator.textContent = `- ${copyOriginators[index]}`;
 
-  //Remove the used quote/originator combo.
+  //Removes the current quote and originator from the copy array.
   copyQuotes.splice(index, 1);
   copyOriginators.splice(index, 1);
+
+  buttonClicked = true;
+  buttonOff();
 }
 
-generateButton.addEventListener("click", generateRandom);
+function buttonOff() {
+  if (buttonClicked === true) {
+    setTimeout(() => {
+      buttonClicked = false;
+    }, 5000);
+  }
+}
+
+// if (buttonClicked) {
+//   // generateButton.setAttribute("disabled", "disabled");
+//   generateButton.removeEventListener("click", generateRandom);
+// } else if (buttonClicked === false) {
+//   generateButton.addEventListener("click", generateRandom);
+// }
+
+generateButton.addEventListener("click", () => {
+  setTimeout(() => {
+    currentQuote.classList.remove("fade-in");
+    currentOriginator.classList.remove("fade-in");
+  }, 5000);
+});

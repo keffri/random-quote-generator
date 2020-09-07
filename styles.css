@@ -55,6 +55,7 @@ body {
   transform: translateX(-50%) translateY(-65%);
   width: 100%;
   text-align: center;
+  opacity: 0;
 }
 
 .originator {
@@ -62,17 +63,27 @@ body {
   top: 75%;
   left: 50%;
   transform: translateX(-50%) translateY(-75%);
+  opacity: 0;
 }
 
-@keyframes fadeOut {
+@keyframes fadeIn {
   0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
     opacity: 1;
+  }
+  75% {
+    opacity: 0.75;
   }
   100% {
     opacity: 0;
   }
 }
 
-.fadeO {
-  animation: fadeOut 1s;
+.fade-in {
+  animation: fadeIn 5s forwards;
 }
