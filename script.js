@@ -3,16 +3,22 @@ let quote = document.querySelector(".quote");
 let originator = document.querySelector(".originator");
 
 let quotes = [
-  `"We suffer more often in imagination than in reality."`,
-  `“The soul becomes dyed with the colour of its thoughts.”`,
-  `"Any man who reads too much and uses his own brain too little falls into lazy habits of thinking."`,
-  `"If you don’t make mistakes, you’re not working on hard enough problems. And that’s a big mistake."`,
+  `We suffer more often in imagination than in reality.`,
+  `The soul becomes dyed with the colour of its thoughts.`,
+  `Any man who reads too much and uses his own brain too little falls into lazy habits of thinking.`,
+  `If you don’t make mistakes, you’re not working on hard enough problems. And that’s a big mistake.`,
+  `Wealth consists not in having great possessions, but in having few wants.`,
+  `Patience is bitter, but its fruit is sweet.`,
+  `Failure is only the opportunity to begin again.`,
 ];
 let originators = [
   "Seneca",
   "Marcus Aurelius",
   "Albert Einstein",
   "Frank Wilczek",
+  "Epictetus",
+  "Aristotle",
+  "Uncle Iroh",
 ];
 
 // //Current number of quotes/originators (by index number).
@@ -26,27 +32,6 @@ function randomQuoteNumber() {
   let n = Math.floor(Math.random() * quotes.length);
   return quoteNumbers[n];
 }
-
-// OLD METHOD USED FOR GENERATING RANDOM.
-// function generateQuote() {
-//   //Sets random index for quote in cases where current and next do not match.
-//   let c = randomQuoteNumber();
-//   //Obtains current quote.
-//   let currentQuote = document.querySelector(".quote").textContent;
-//   let currentOriginator = document.querySelector(".originator").textContent;
-//   //Sets next quote to random quote from the quotes array.
-//   let nextQuote = quotes[c];
-//   let nextOriginator = originators[c];
-//   //While both quotes are the same another quote is chosen at random.
-//   while (currentQuote == nextQuote || currentOriginator == nextOriginator) {
-//     let n = randomQuoteNumber();
-//     nextQuote = quotes[n];
-//     nextOriginator = originators[n];
-//   }
-//   //While both quotes are no longer matching a new quote is set.
-//   quote.textContent = nextQuote;
-//   originator.textContent = `- ${nextOriginator}`;
-// }
 
 //Sets the DOM for the quote and originator.
 let currentQuote = document.querySelector(".quote");
@@ -74,7 +59,7 @@ function generateRandom() {
   //Sets the quote and originator to the corresponding index number.
   currentQuote.classList.add("fade-in");
   currentOriginator.classList.add("fade-in");
-  nextQuote.textContent = copyQuotes[index];
+  nextQuote.textContent = `"${copyQuotes[index]}"`;
   nextOriginator.textContent = `- ${copyOriginators[index]}`;
 
   //Removes the current quote and originator from the copy array.
@@ -116,3 +101,24 @@ function removeFade() {
 generateButton.addEventListener("click", generateRandom);
 generateButton.addEventListener("click", removeFade);
 generateButton.addEventListener("click", checkClicked);
+
+// OLD METHOD USED FOR GENERATING RANDOM.
+// function generateQuote() {
+//   //Sets random index for quote in cases where current and next do not match.
+//   let c = randomQuoteNumber();
+//   //Obtains current quote.
+//   let currentQuote = document.querySelector(".quote").textContent;
+//   let currentOriginator = document.querySelector(".originator").textContent;
+//   //Sets next quote to random quote from the quotes array.
+//   let nextQuote = quotes[c];
+//   let nextOriginator = originators[c];
+//   //While both quotes are the same another quote is chosen at random.
+//   while (currentQuote == nextQuote || currentOriginator == nextOriginator) {
+//     let n = randomQuoteNumber();
+//     nextQuote = quotes[n];
+//     nextOriginator = originators[n];
+//   }
+//   //While both quotes are no longer matching a new quote is set.
+//   quote.textContent = nextQuote;
+//   originator.textContent = `- ${nextOriginator}`;
+// }
