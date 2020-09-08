@@ -85,24 +85,34 @@ function generateRandom() {
   buttonOff();
 }
 
+//buttonClicked === true for 5 seconds after button is clicked, and then set to false.
 function buttonOff() {
   if (buttonClicked === true) {
     setTimeout(() => {
       buttonClicked = false;
+      generateButton.addEventListener("click", generateRandom);
+      generateButton.addEventListener("click", removeFade);
     }, 5000);
   }
 }
 
-// if (buttonClicked) {
-//   // generateButton.setAttribute("disabled", "disabled");
-//   generateButton.removeEventListener("click", generateRandom);
-// } else if (buttonClicked === false) {
-//   generateButton.addEventListener("click", generateRandom);
-// }
+function checkClicked() {
+  while (buttonClicked) {
+    generateButton.removeEventListener("click", generateRandom);
+    generateButton.removeEventListener("click", removeFade);
+    break;
+  }
+}
 
-generateButton.addEventListener("click", () => {
+function removeFade() {
   setTimeout(() => {
     currentQuote.classList.remove("fade-in");
     currentOriginator.classList.remove("fade-in");
   }, 5000);
-});
+}
+
+//Fade-in removed 5 seconds after button is clicked.
+
+generateButton.addEventListener("click", generateRandom);
+generateButton.addEventListener("click", removeFade);
+generateButton.addEventListener("click", checkClicked);

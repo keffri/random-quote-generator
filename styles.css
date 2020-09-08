@@ -85,5 +85,5 @@ body {
 }
 
 .fade-in {
-  animation: fadeIn 5s forwards;
+  animation: fadeIn ease-in-out 5s forwards;
 }
