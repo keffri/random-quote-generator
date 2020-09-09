@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Merriweather", serif;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
 
 .container {
   height: 500px;
-  width: 500px;
+  width: 600px;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -34,14 +34,25 @@ body {
   top: 30%;
   left: 50%;
   transform: translateX(-50%) translateY(-30%);
-  padding: 10px;
+  padding: 15px 20px;
   border: 2px solid #000;
   background-color: #d3d2ce;
   border-radius: 5px;
+  transition: all 0.5s;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.generate:hover {
+  transform: translateX(-50%) translateY(-30%) translateY(-3px);
+  box-shadow: 0 4px 8px #000;
 }
 
 .generate:active {
-  transform: translateX(-50%) translateY(-30%) scale(0.97);
+  transform: translateX(-50%) translateY(-30%) translateY(-1px);
+  box-shadow: 0 2px 4px #000;
 }
 
 .generate:focus {
@@ -56,6 +67,7 @@ body {
   width: 100%;
   text-align: center;
   opacity: 0;
+  font-style: italic;
 }
 
 .originator {
@@ -64,9 +76,10 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-75%);
   opacity: 0;
+  text-decoration: underline;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInOut {
   0% {
     opacity: 0;
   }
@@ -85,5 +98,5 @@ body {
 }
 
 .fade-in {
-  animation: fadeIn ease-in-out 5s forwards;
+  animation: fadeInOut ease-in-out 5s forwards;
 }
