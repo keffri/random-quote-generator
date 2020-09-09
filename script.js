@@ -5,20 +5,20 @@ let originator = document.querySelector(".originator");
 let quotes = [
   `We suffer more often in imagination than in reality.`,
   `The soul becomes dyed with the colour of its thoughts.`,
-  `Any man who reads too much and uses his own brain too little falls into lazy habits of thinking.`,
-  `If you don’t make mistakes, you’re not working on hard enough problems. And that’s a big mistake.`,
   `Wealth consists not in having great possessions, but in having few wants.`,
   `Patience is bitter, but its fruit is sweet.`,
   `Failure is only the opportunity to begin again.`,
+  `Wisdom is the offspring of suffering and time`,
+  `Let go your earthly tether. Enter the void. Empty and become wind.`,
 ];
 let originators = [
-  "Seneca",
-  "Marcus Aurelius",
-  "Albert Einstein",
-  "Frank Wilczek",
-  "Epictetus",
-  "Aristotle",
-  "Uncle Iroh",
+  `Seneca`,
+  `Marcus Aurelius`,
+  `Epictetus`,
+  `Aristotle`,
+  `Uncle Iroh`,
+  `Emperor Izaro`,
+  `Guru Laghima`,
 ];
 
 // //Current number of quotes/originators (by index number).
@@ -60,7 +60,7 @@ function generateRandom() {
   currentQuote.classList.add("fade-in");
   currentOriginator.classList.add("fade-in");
   nextQuote.textContent = `"${copyQuotes[index]}"`;
-  nextOriginator.textContent = `- ${copyOriginators[index]}`;
+  nextOriginator.textContent = `${copyOriginators[index]}`;
 
   //Removes the current quote and originator from the copy array.
   copyQuotes.splice(index, 1);
