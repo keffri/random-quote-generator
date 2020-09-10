@@ -10,6 +10,9 @@ let quotes = [
   `Failure is only the opportunity to begin again.`,
   `Wisdom is the offspring of suffering and time`,
   `Let go your earthly tether. Enter the void. Empty and become wind.`,
+  `Life is not a problem to be solved, but a reality to be experienced.`,
+  `If you hate a person, then you are defeated by them.`,
+  `Do not let the behavior of others destroy your inner peace.`,
 ];
 
 let originators = [
@@ -20,6 +23,9 @@ let originators = [
   `Uncle Iroh`,
   `Emperor Izaro`,
   `Guru Laghima`,
+  `Soren Kierkegaard`,
+  `Confucius`,
+  `Dalai Lama`,
 ];
 
 //Sets the DOM for the quote and originator.
